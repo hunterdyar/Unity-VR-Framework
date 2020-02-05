@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+namespace IMMToolkit{
 [RequireComponent(typeof(AudioSourceInterface))]
 public class AudioPlaylistHandler : MonoBehaviour
 {
@@ -53,4 +53,5 @@ public class AudioPlaylistHandler : MonoBehaviour
         }
         PlaySong(trackIndex);
     }
+}
 }

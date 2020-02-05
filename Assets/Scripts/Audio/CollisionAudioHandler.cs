@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+namespace IMMToolkit{
 public class CollisionAudioHandler : MonoBehaviour
 {
     [Tooltip("Will play a random selection of listed clips. Using a single clip will have it just play that one every time")]
@@ -46,4 +46,5 @@ public class CollisionAudioHandler : MonoBehaviour
             audioInterface.Play();
         }
     }
+}
 }

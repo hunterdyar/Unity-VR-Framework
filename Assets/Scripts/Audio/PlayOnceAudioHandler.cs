@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+namespace IMMToolkit{
 [RequireComponent(typeof(AudioSourceInterface))]
 public class PlayOnceAudioHandler : MonoBehaviour
 {
@@ -57,4 +57,5 @@ public class PlayOnceAudioHandler : MonoBehaviour
         }
         
     }
+}
 }

@@ -1,10 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+namespace IMMToolkit{
 [CreateAssetMenu(fileName = "Group", menuName = "IMMToolkit/AudioGroup", order = 1)]
 public class AudioGroup : ScriptableObject
 {   
+    public bool fadeInsteadOfStopping;
+    public float fadeDuration;
     private List<AudioSource> members;
     public void RegisterMember(AudioSource source){
         if(members == null)
@@ -49,4 +51,5 @@ public class AudioGroup : ScriptableObject
             Debug.LogWarning("audio source not member of group.",source);
         }
     }
+}
 }

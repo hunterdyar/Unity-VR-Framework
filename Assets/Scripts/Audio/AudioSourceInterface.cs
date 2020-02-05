@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+namespace IMMToolkit{
 [RequireComponent(typeof(AudioSource))]
 public class AudioSourceInterface : MonoBehaviour
 {
@@ -75,5 +75,5 @@ public class AudioSourceInterface : MonoBehaviour
         group.DeregisterMember(audioSource);
     }
 
-    
+}
 }
