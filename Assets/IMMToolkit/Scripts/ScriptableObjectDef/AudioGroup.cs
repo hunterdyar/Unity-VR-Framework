@@ -6,49 +6,64 @@ namespace IMMToolkit{
 public class AudioGroup : ScriptableObject
 {   
     public bool fadeInsteadOfStopping;
+    [Tooltip("Percent of default volume to fade down (or up?) to.")]
+    public float fadeAmount;
     public float fadeDuration;
-    private List<AudioSource> members;
-    public void RegisterMember(AudioSource source){
+    private List<AudioSourceInterface> members;
+    public void RegisterMember(AudioSourceInterface audioInterface){
         if(members == null)
         {
-            members = new List<AudioSource>();
+            members = new List<AudioSourceInterface>();
         }
-        if(!members.Contains(source))
+        if(!members.Contains(audioInterface))
         {
-            members.Add(source);
+            members.Add(audioInterface);
         }
         else
         {
-            Debug.LogWarning("Audio Source already member of group: "+this.name,source);
+            Debug.LogWarning("Audio Source already member of group: "+this.name,audioInterface);
         }
     }
-    public void DeregisterMember(AudioSource source){
+    public void DeregisterMember(AudioSourceInterface audioInterface){
         if(members == null)
         {
             return;
         }
-        if(members.Contains(source))
+        if(members.Contains(audioInterface))
         {
-            members.Remove(source);
+            members.Remove(audioInterface);
         }
     }
     public void StopAll()
     {
-        foreach(AudioSource source in members)
+        foreach(AudioSourceInterface audioInterface in members)
         {
-            if(source.enabled && source.gameObject.activeInHierarchy)
+            if(audioInterface.gameObject.activeInHierarchy)
             {
-                source.Stop();
+                audioInterface.Stop();
             }
         }
     }
-    public void PlayOne(AudioSource source)
+    public void FadeAllDown()
     {
-        if(members.Contains(source)){
+        foreach(AudioSourceInterface audioInterface in members)
+        {
+            if(audioInterface.gameObject.activeInHierarchy)
+            {
+                //Fade volume down?
+                //Should audioGroups be lists of the interfaces, not the group?
+                //dang. yeah.
+               // source.volume
+            }
+        }
+    }
+    public void PlayOne(AudioSourceInterface audioInterface)
+    {
+        if(members.Contains(audioInterface)){
             StopAll();
-            source.Play();
+            audioInterface.Play();
         }else{
-            Debug.LogWarning("audio source not member of group.",source);
+            Debug.LogWarning("audio source not member of group.",audioInterface);
         }
     }
 }

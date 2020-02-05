@@ -31,12 +31,16 @@ namespace IMMToolkit{
                     //This has the interesting "bug" of telling the audio source to play multiple times in one frame, 
                     //This is fine, we can stop all members of all other audio groups.
                     //an audio source can only play one clip at a time, and since its the same frame, there shouldn't be any stuttering, 
-                    groups[0].PlayOne(audioSource);
+                    groups[0].PlayOne(this);
                 }
             }else
             {
                 audioSource.Play();
             }
+        }
+        public void Stop()
+        {
+            audioSource.Stop();
         }
         public void ForcePlay()//ignores the group
         {
@@ -77,14 +81,14 @@ namespace IMMToolkit{
         { 
             foreach(AudioGroup g in groups)
             {
-                g.RegisterMember(audioSource);
+                g.RegisterMember(this);
             }
         }
         void OnDisable()
         {
             foreach(AudioGroup g in groups)
             {
-                g.DeregisterMember(audioSource);
+                g.DeregisterMember(this);
             } 
         }
     }
