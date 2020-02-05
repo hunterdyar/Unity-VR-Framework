@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using MyBox;
 namespace IMMToolkit{
 [CreateAssetMenu(fileName = "LightGroup", menuName = "IMMToolkit/LightingGroup", order = 1)]
 public class LightingGroup : ScriptableObject
@@ -31,6 +32,7 @@ public class LightingGroup : ScriptableObject
             members.Remove(member);
         }
     }
+    [ButtonMethod]
     public void FadeLightsOut()
     {
         foreach(LightgroupMember l in members)
