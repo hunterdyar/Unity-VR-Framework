@@ -19,7 +19,8 @@ public class LightingGroup : ScriptableObject
         }
         else
         {
-            Debug.LogWarning("Audio Source already member of group: "+this.name,member);
+            // This actually happens a lot because scriptableObjects dont reset on exiting play mode.
+            // Debug.LogWarning("Light already member of group: "+this.name,member);
         }
     }
     public void DeregisterMember(LightgroupMember member){

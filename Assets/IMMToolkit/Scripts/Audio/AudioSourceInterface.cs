@@ -5,24 +5,23 @@ namespace IMMToolkit{
     [RequireComponent(typeof(AudioSource))]
     public class AudioSourceInterface : MonoBehaviour
     {
-        [Header("Optional")]
+        [MyBox.Separator("Setup")]
         [Tooltip("The audio group will stop all other members of the group from playing audio, so you don't have overlapping sound from members of a group.")]
         public AudioGroup[] groups;
-        [HideInInspector]
+
+        [MyBox.Separator("Debugging")]
+        [MyBox.ReadOnly]
         public AudioSource audioSource;
         private AudioClip defaultClip;
         private float defaultVolume;
+        
         void Awake()
         {
             audioSource = GetComponent<AudioSource>();
             defaultClip = audioSource.clip;
             defaultVolume = audioSource.volume;
-            if(groups.Length == 0 || audioSource == null)
-            {
-                Debug.LogError("Audio Group Interface not correctly set up.");
-            }
         }
-
+        [MyBox.ButtonMethod]
         public void Play()
         {
             if(groups.Length != 0)

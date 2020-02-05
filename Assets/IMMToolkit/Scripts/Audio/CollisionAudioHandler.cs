@@ -13,18 +13,19 @@ public class CollisionAudioHandler : MonoBehaviour
     public bool ignoreGroupForCollisions;
     void Awake(){//Initialization
         audioInterface = GetComponent<AudioSourceInterface>();
-        defaultVolume = audioInterface.GetVolume();
+        
+        if(GetComponent<Rigidbody>() == null){
+            Debug.LogWarning("Play on collisions is set but there is no rigidbody attached to this object. It still might work (?) but is probably not intended.",gameObject);
+        }
+    }
+    void Start(){
         //If it's empty, we should just use the audioSource clip instead.
         if(sourceClips.Length == 0 && audioInterface.GetClip() != null)
         {
             sourceClips = new AudioClip[1];
             sourceClips[0] = audioInterface.GetClip();
         }
-        if(GetComponent<Rigidbody>() == null){
-            Debug.LogWarning("Play on collisions is set but there is no rigidbody attached to this object. It still might work (?) but is probably not intended.",gameObject);
-        }
-    }
-    void Start(){
+        defaultVolume = audioInterface.GetVolume();
         if(collisionVolume == 0)
         {
             Debug.LogWarning("Collision Volume Multiplier is 0. Volume of collision will always be zero.",this);
