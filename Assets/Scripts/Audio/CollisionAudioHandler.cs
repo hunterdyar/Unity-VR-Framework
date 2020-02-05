@@ -8,38 +8,42 @@ public class CollisionAudioHandler : MonoBehaviour
     public AudioClip[] sourceClips;
     [Tooltip("The magnitude of the relative velocity of impact (m/s) is multiplied by this number to set the volume for collisions. The result is clamped to between 0 and 1.")]
     public float collisionVolume = 1;
-    private AudioSource audioSource;
+    private AudioSourceInterface audioInterface;
     private float defaultVolume;
+    public bool ignoreGroupForCollisions;
     void Awake(){//Initialization
-        audioSource = GetComponent<AudioSource>();
-        defaultVolume = audioSource.volume;
+        audioInterface = GetComponent<AudioSourceInterface>();
+        defaultVolume = audioInterface.GetVolume();
         //If it's empty, we should just use the audioSource clip instead.
-        if(sourceClips.Length == 0 && audioSource.clip != null)
+        if(sourceClips.Length == 0 && audioInterface.GetClip() != null)
         {
             sourceClips = new AudioClip[1];
-            sourceClips[0] = audioSource.clip;
+            sourceClips[0] = audioInterface.GetClip();
         }
         if(GetComponent<Rigidbody>() == null){
-            Debug.LogWarning("Play on collisions is set but there is no rigidbody attached to this object. It still might work but is probably not intended.",gameObject);
+            Debug.LogWarning("Play on collisions is set but there is no rigidbody attached to this object. It still might work (?) but is probably not intended.",gameObject);
         }
     }
     void Start(){
         if(collisionVolume == 0)
         {
-            Debug.LogWarning("Collision Volume Multiplier is 0 and playOnCollisions is 0. Volume of collision will always be zero.",gameObject);
+            Debug.LogWarning("Collision Volume Multiplier is 0. Volume of collision will always be zero.",this);
         }
     }
     public void ResetVolume(){
-        audioSource.volume = defaultVolume;
-    }
-    public void Play()
-    {
-        audioSource.clip = sourceClips[Random.Range(0,sourceClips.Length-1)];
-        audioSource.Play();
+        audioInterface.ResetVolume();
     }
 
     void OnCollisionEnter(Collision col){
         float newVolume = Mathf.Clamp01(col.relativeVelocity.magnitude*collisionVolume);
-        Play();
+        audioInterface.SetVolume(newVolume);
+        audioInterface.SetClip(sourceClips[Random.Range(0,sourceClips.Length-1)]);
+        if(ignoreGroupForCollisions)
+        {
+           audioInterface.ForcePlay(); 
+        }else
+        {
+            audioInterface.Play();
+        }
     }
 }

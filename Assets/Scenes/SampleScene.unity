@@ -1007,6 +1007,8 @@ GameObject:
   - component: {fileID: 1436104261}
   - component: {fileID: 1436104260}
   - component: {fileID: 1436104259}
+  - component: {fileID: 1436104264}
+  - component: {fileID: 1436104265}
   m_Layer: 0
   m_Name: Speaker
   m_TagString: Untagged
@@ -1029,7 +1031,7 @@ AudioSource:
   m_Volume: 1
   m_Pitch: 1
   Loop: 1
-  Mute: 0
+  Mute: 1
   Spatialize: 0
   SpatializePostEffects: 0
   Priority: 121
@@ -1184,6 +1186,38 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: -32.276, y: 43.58, z: 0}
+--- !u!114 &1436104264
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1436104258}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea016327bdb8922428dc2bdabb7a5f0d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  group: {fileID: 11400000, guid: 13f6c5239d8908d45bf844b4fbe7148e, type: 2}
+  audioSource: {fileID: 0}
+--- !u!114 &1436104265
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1436104258}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 467b0d9d70888eb4da6307572f374e88, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startWithRandomSong: 0
+  randomSongEachTurn: 0
+  playlist:
+  - {fileID: 8300000, guid: 0294e965e09aede428f2d400e0278a18, type: 3}
+  - {fileID: 8300000, guid: 0294e965e09aede428f2d400e0278a18, type: 3}
+  - {fileID: 8300000, guid: 0294e965e09aede428f2d400e0278a18, type: 3}
 --- !u!1 &1538178622
 GameObject:
   m_ObjectHideFlags: 0
@@ -1194,6 +1228,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1538178623}
   - component: {fileID: 1538178624}
+  - component: {fileID: 1538178626}
   - component: {fileID: 1538178625}
   m_Layer: 0
   m_Name: Voice Over Audio
@@ -1325,6 +1360,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sourceClip: {fileID: 8300000, guid: e8d9ed7139810e64faec23a5e835bd39, type: 3}
+  dontCountAsPlayedUntilClipFinishes: 1
+--- !u!114 &1538178626
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1538178622}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea016327bdb8922428dc2bdabb7a5f0d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  group: {fileID: 11400000, guid: b84fd6cc29080134a92e2097787f949e, type: 2}
+  audioSource: {fileID: 0}
 --- !u!1 &1971414775
 GameObject:
   m_ObjectHideFlags: 0
@@ -1341,6 +1391,7 @@ GameObject:
   - component: {fileID: 1971414776}
   - component: {fileID: 1971414783}
   - component: {fileID: 1971414782}
+  - component: {fileID: 1971414784}
   m_Layer: 0
   m_Name: 'Interactable Cube '
   m_TagString: Untagged
@@ -1549,6 +1600,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: f1e2cf6fbeb16ad4699049830796b1d3, type: 3}
   - {fileID: 8300000, guid: 1f23a7934e82cdb498e54f34a00153e6, type: 3}
   collisionVolume: 0.1
+  ignoreGroupForCollisions: 0
 --- !u!82 &1971414783
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1645,6 +1697,20 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1971414784
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1971414775}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea016327bdb8922428dc2bdabb7a5f0d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  group: {fileID: 11400000, guid: 24e93312760da9243b5e49551de29895, type: 2}
+  audioSource: {fileID: 0}
 --- !u!1 &2032793429
 GameObject:
   m_ObjectHideFlags: 0
