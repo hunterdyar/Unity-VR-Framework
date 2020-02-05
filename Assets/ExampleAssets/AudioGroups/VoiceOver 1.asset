@@ -12,3 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b475f5a7a568534bb59bbbdb9fbf71f, type: 3}
   m_Name: VoiceOver 1
   m_EditorClassIdentifier: 
+  fadeInsteadOfStopping: 0
+  fadeFactor: 0
+  fadeDuration: 0

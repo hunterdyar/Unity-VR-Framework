@@ -23,7 +23,7 @@ RenderSettings:
   m_AmbientSkyColor: {r: 0.212, g: 0.227, b: 0.259, a: 1}
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
-  m_AmbientIntensity: 1.1
+  m_AmbientIntensity: 1
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
   m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
@@ -1213,7 +1213,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea016327bdb8922428dc2bdabb7a5f0d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  group: {fileID: 11400000, guid: 13f6c5239d8908d45bf844b4fbe7148e, type: 2}
+  groups: []
   audioSource: {fileID: 0}
 --- !u!114 &1436104265
 MonoBehaviour:
@@ -1388,7 +1388,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea016327bdb8922428dc2bdabb7a5f0d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  group: {fileID: 11400000, guid: b84fd6cc29080134a92e2097787f949e, type: 2}
+  groups: []
   audioSource: {fileID: 0}
 --- !u!1 &1551970813
 GameObject:
@@ -1831,7 +1831,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea016327bdb8922428dc2bdabb7a5f0d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  group: {fileID: 11400000, guid: 24e93312760da9243b5e49551de29895, type: 2}
+  groups: []
   audioSource: {fileID: 0}
 --- !u!1 &2032793429
 GameObject:
