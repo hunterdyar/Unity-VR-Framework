@@ -5,30 +5,40 @@ namespace IMMToolkit{
 [CreateAssetMenu(fileName = "LightGroup", menuName = "IMMToolkit/LightingGroup", order = 1)]
 public class LightingGroup : ScriptableObject
 {   
-    private List<Light> members;
-    public void RegisterMember(Light source){
+    float fadeOutTime = 1;
+    private List<LightgroupMember> members;
+    public void RegisterMember(LightgroupMember member){
         if(members == null)
         {
-            members = new List<Light>();
+            members = new List<LightgroupMember>();
         }
-        if(!members.Contains(source))
+        if(!members.Contains(member))
         {
-            members.Add(source);
+            members.Add(member);
         }
         else
         {
-            Debug.LogWarning("Audio Source already member of group: "+this.name,source);
+            Debug.LogWarning("Audio Source already member of group: "+this.name,member);
         }
     }
-    public void DeregisterMember(Light source){
+    public void DeregisterMember(LightgroupMember member){
         if(members == null)
         {
             return;
         }
-        if(members.Contains(source))
+        if(members.Contains(member))
         {
-            members.Remove(source);
+            members.Remove(member);
         }
     }
+    public void FadeLightsOut()
+    {
+        foreach(LightgroupMember l in members)
+        {
+            l.FadeOut(fadeOutTime);
+        }
+    }
+
+
 }
 }
