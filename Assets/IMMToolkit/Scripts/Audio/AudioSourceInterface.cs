@@ -62,6 +62,24 @@ namespace IMMToolkit{
         {
             audioSource.volume = volume;
         }
+        public void FadeVolumeByFactor(float fadeFactor)
+        {
+            audioSource.volume = defaultVolume*fadeFactor;
+        }
+        public IEnumerator FadeVolumeByFactor(float fadeFactor,float timeToFade,float waitTillFade = 0)
+        {
+            yield return new WaitForSeconds(waitTillFade);
+            float t = 0;
+            float startVolume = audioSource.volume;
+            float endVolume = defaultVolume*fadeFactor;
+            while(t<1)
+            {
+                t = t + Time.deltaTime/timeToFade;
+                audioSource.volume = Mathf.Lerp(startVolume,endVolume,t);
+                yield return new WaitForEndOfFrame();
+            }
+            audioSource.volume = endVolume;
+        }
         public void StopAllMembers()
         {
             foreach(AudioGroup g in groups)
