@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//The GameObjectSwitcher has a list of GameObjects (ie, parent objects for all room objects.)
+//It allows us to activate just one at a time, and switch between them.
+//Optional delay, which we can set to the same value as the delay in fading lights/audio out, before switching.
 public class GameObjectSwitcher : MonoBehaviour
 {
     [Header("Configuration")]

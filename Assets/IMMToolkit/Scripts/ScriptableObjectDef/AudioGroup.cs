@@ -2,6 +2,19 @@
 using System.Collections.Generic;
 using UnityEngine;
 using MyBox;
+/*
+An audio group is a scriptableObject that keeps a list of scene elements.
+ScriptableObjects can't hold scene reference data outside of runtime (without serialization hacks), so we have an interface that adds
+the audioGroupInterface to this list onEnable. See AudioGroupInterface for that.
+
+This SO means we have some public functions we can just hit play/stop on, and all audiosources in the group will behave appropriatley.
+
+audio sources can be in more than one group, as well. That means we can have a background music group that fades the audio sources volume,
+and an interactable voice over group that stops each other, and an audio source can pause another voice over and fade down the background, without 
+any further coding or unique shenanigans.
+
+
+*/
 namespace IMMToolkit{
 [CreateAssetMenu(fileName = "Group", menuName = "IMMToolkit/AudioGroup", order = 1)]
 public class AudioGroup : ScriptableObject

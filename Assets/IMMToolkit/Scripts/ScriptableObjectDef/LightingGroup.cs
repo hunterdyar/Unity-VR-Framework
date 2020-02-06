@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using MyBox;
+//Lighting groups give us easy access to fading and unfading all lights in a certain group at once.
 namespace IMMToolkit{
 [CreateAssetMenu(fileName = "LightGroup", menuName = "IMMToolkit/LightingGroup", order = 1)]
 public class LightingGroup : ScriptableObject
