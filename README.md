@@ -2,6 +2,16 @@
 Starting point with project settings set up, for working with new 2019 Unity XR Features
 
 Basically, an almost empty project you can clone. Uses 2019.3 XR management features, but "legacy" (not "new") input system.
+## Working with Rooms.
+This toolkit has two ways to control rooms, scenes and gameObjects.
+
+Scenes keeps all objects in one "room" in their own scene, that scene should not have a camera (maybe?) but otherwise is just all the objects. A sceneController lets you cycle through various scenes in a list.
+
+A similar approach is implemented for GameObjects, which enabled/disabled a parent gameObject in a list, but only one scene exists.
+
+Multi-scene editing can be tricky and slightly annoying to work with, but tends to work better for version control systems as people working on seperate parts of the project can work on independent scenes. Remember you can just load up all the scenes in the inspector at the same time to line things up.
+
+Single scene editing is more convenient, but is more annoying to collaboratively work with, as basically only one person can make changes to a scene at a time.
 
 ## Working with Audio.
 
