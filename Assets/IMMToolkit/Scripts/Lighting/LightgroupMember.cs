@@ -19,15 +19,21 @@ namespace IMMToolkit{
             lightingGroup.RegisterMember(this);
         }
         void OnDisable(){
-            lightingGroup.RegisterMember(this);
+            lightingGroup.DeregisterMember(this);
         }
         public void FadeOut(float timeToFade)
         {
-            StartCoroutine(FadeLight(light.intensity,0,timeToFade));
+            if(light.intensity != 0)//prevent uneccesary coroutines
+            {
+                StartCoroutine(FadeLight(light.intensity,0,timeToFade));
+            }
         }
         public void FadeIn(float timeToFade)
         {
-            StartCoroutine(FadeLight(light.intensity,defaultIntensity,timeToFade));
+            if(light.intensity != defaultIntensity)//nothing would happen anyway
+            {
+                StartCoroutine(FadeLight(light.intensity,defaultIntensity,timeToFade));
+            }
         }
         public IEnumerator FadeLight(float startIntensity, float endIntensity,float timeToFade)
         {

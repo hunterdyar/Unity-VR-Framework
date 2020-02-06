@@ -6,11 +6,17 @@ namespace IMMToolkit{
 [CreateAssetMenu(fileName = "LightGroup", menuName = "IMMToolkit/LightingGroup", order = 1)]
 public class LightingGroup : ScriptableObject
 {   
-    float fadeOutTime = 1;
-    [ReadOnly]
-    public List<LightgroupMember> members;
+    [Separator("Lightgroup Settings")]
+    [Tooltip("Time in seconds to fade in and out.")]
+    public float fadeOutTime = 1;
+    private List<LightgroupMember> members;
+
+    private void ClearMembers()
+    {
+        members.Clear();
+    }
     public void RegisterMember(LightgroupMember member){
-        if(members == null)
+        if(members == null)//initialize if needed.
         {
             members = new List<LightgroupMember>();
         }
@@ -39,10 +45,29 @@ public class LightingGroup : ScriptableObject
     {
         foreach(LightgroupMember l in members)
         {
-            l.FadeOut(fadeOutTime);
+            if(l == null)
+            {
+                Debug.Log("???");
+            }else
+            {
+                l.FadeOut(fadeOutTime);
+            }
         }
     }
-
+     [ButtonMethod]
+    public void FadeLightsIn()
+    {
+        foreach(LightgroupMember l in members)
+        {
+            if(l == null)
+            {
+                Debug.Log("???");
+            }else
+            {
+                l.FadeIn(fadeOutTime);
+            }
+        }
+    }
 
 }
 }
