@@ -7,7 +7,8 @@ namespace IMMToolkit{
 public class LightingGroup : ScriptableObject
 {   
     float fadeOutTime = 1;
-    private List<LightgroupMember> members;
+    [ReadOnly]
+    public List<LightgroupMember> members;
     public void RegisterMember(LightgroupMember member){
         if(members == null)
         {
