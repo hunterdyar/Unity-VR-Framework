@@ -8,15 +8,7 @@ namespace IMMToolkit {
     public class AmbientLightgroupmember : LightgroupMember
     {
         void Awake(){
-            if(allCurrentlyLoadedLights == null)
-            {
-                allCurrentlyLoadedLights = ScriptableObject.CreateInstance<LightingGroup>();
-            }
             defaultIntensity = RenderSettings.ambientIntensity;
-            if(defaultIntensity == 0)
-            {
-                Debug.LogWarning("ambient default is 0. Is this intentional?");
-            }
         }
         //RenderSettings.AmbientLight
         public override void FadeOut(float timeToFade)
@@ -29,9 +21,9 @@ namespace IMMToolkit {
         }
         public override void FadeIn(float timeToFade)
         {
+            Debug.Log("fade out ambient");
             if(RenderSettings.ambientIntensity != defaultIntensity)
             {
-                Debug.Log("fade out ambient");
                 StartCoroutine(FadeLight(RenderSettings.ambientIntensity,defaultIntensity,timeToFade));
             }
         }

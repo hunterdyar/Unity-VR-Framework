@@ -6,34 +6,25 @@ namespace IMMToolkit{
     public class LightgroupMember : MonoBehaviour
     {
         public LightingGroup[] lightingGroups;
-        public static LightingGroup allCurrentlyLoadedLights;
+
         [HideInInspector]
         public new Light light;
         [HideInInspector]
         public float defaultIntensity;//the "on"
         void Awake(){
-            //needs to potentially create this lighting group before OnEnable, where it will use it.
-            if(allCurrentlyLoadedLights == null)
-            {
-                allCurrentlyLoadedLights = ScriptableObject.CreateInstance<LightingGroup>();
-            }
-            //
             light = GetComponent<Light>();
             if(light == null){
                 Debug.LogError("no light component found for lightGroupMember",gameObject);
             }
             defaultIntensity = light.intensity;
-            
         }
         void OnEnable(){
-            allCurrentlyLoadedLights.RegisterMember(this);
             foreach(LightingGroup lightingGroup in lightingGroups)
             {
                 lightingGroup.RegisterMember(this);
             }
         }
         void OnDisable(){
-            allCurrentlyLoadedLights.DeregisterMember(this);
             foreach(LightingGroup lightingGroup in lightingGroups)
             {
                 lightingGroup.DeregisterMember(this);
@@ -64,22 +55,6 @@ namespace IMMToolkit{
             }
             light.intensity = endIntensity;
         }
-        ///DEBUGGING
-        [MyBox.ButtonMethod]
-        public void TurnThisLightOn(){
-           FadeIn(0.1f);
-        }
-        [MyBox.ButtonMethod]
-        public void TurnThisLightOff(){
-            FadeOut(0.1f);
-        }
-        [MyBox.ButtonMethod]
-        public void FadeAllIn(){
-            allCurrentlyLoadedLights.FadeLightsIn();
-        }
-        [MyBox.ButtonMethod]
-        public void FadeAllOut(){
-            allCurrentlyLoadedLights.FadeLightsOut();
-        }
+        
     }
 }
