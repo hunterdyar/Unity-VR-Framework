@@ -16,8 +16,6 @@ Single scene editing is more convenient, but is more annoying to collaboratively
 ## Working with Light
 Add a "LightGroupMember" to any light, or an "ambientlightGroupMember" to an empty object. Make a LightGroup asset in your projects. Now you can grab a reference to the lightGroup scriptableObject and run FadeIn or FadeOut.
 
-*todo: auto-create a lightgroup scriptableObject for "all currently loaded lights" and they add themselves to that one automatically.*
-
 ## Working with Audio.
 
 ### General
