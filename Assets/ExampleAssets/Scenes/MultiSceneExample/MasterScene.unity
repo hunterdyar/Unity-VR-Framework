@@ -491,6 +491,54 @@ Transform:
   m_Father: {fileID: 1160706804}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &818469795
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 818469797}
+  - component: {fileID: 818469796}
+  m_Layer: 0
+  m_Name: Ambient LIghtgroup
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &818469796
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 818469795}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ea91a61ec6375446b5bb80d0ac44c17, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lightingGroups:
+  - {fileID: 11400000, guid: a4a0ce343a284354fae5dbc04f500b2a, type: 2}
+  - {fileID: 11400000, guid: e840f9ed58dce1c45832937b8abc4748, type: 2}
+  light: {fileID: 0}
+  defaultIntensity: 0
+--- !u!4 &818469797
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 818469795}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -2.606353, y: 0.044469, z: -0.47175246}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0
@@ -841,11 +889,11 @@ MonoBehaviour:
   scenes:
   - Scene: {fileID: 102900000, guid: 804e31a9e018e79479d6c4eb5bf3b27b, type: 3}
     SceneName: SceneA
-    sceneIndex: 0
+    sceneIndex: 1
     sceneEnabled: 1
   - Scene: {fileID: 102900000, guid: d76dd9da846b8924aa4b8b23f52eb7d0, type: 3}
     SceneName: SceneB
-    sceneIndex: 1
+    sceneIndex: 2
     sceneEnabled: 1
   startingSceneIndex: 0
   currentSceneIndex: 0

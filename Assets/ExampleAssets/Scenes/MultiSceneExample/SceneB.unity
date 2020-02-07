@@ -147,7 +147,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 130923261}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.1212597, y: 1.4513341, z: -0.7884379}
+  m_LocalPosition: {x: 5.187, y: 1.4513341, z: -3.601}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1728423320}
@@ -165,8 +165,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aec7afbe641f36e48bcd85425ddaf48b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lightingGroup: {fileID: 11400000, guid: a4a0ce343a284354fae5dbc04f500b2a, type: 2}
+  lightingGroups:
+  - {fileID: 11400000, guid: a4a0ce343a284354fae5dbc04f500b2a, type: 2}
   light: {fileID: 0}
+  defaultIntensity: 0
 --- !u!108 &130923264
 Light:
   m_ObjectHideFlags: 0
@@ -1000,8 +1002,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aec7afbe641f36e48bcd85425ddaf48b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lightingGroup: {fileID: 11400000, guid: a4a0ce343a284354fae5dbc04f500b2a, type: 2}
+  lightingGroups:
+  - {fileID: 11400000, guid: a4a0ce343a284354fae5dbc04f500b2a, type: 2}
   light: {fileID: 0}
+  defaultIntensity: 0
 --- !u!108 &1790744960
 Light:
   m_ObjectHideFlags: 0
