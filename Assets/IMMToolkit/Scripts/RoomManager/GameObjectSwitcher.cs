@@ -28,6 +28,10 @@ public class GameObjectSwitcher : MonoBehaviour
         }
         SetOne(currentIndex,true,true,delay);
     }
+    public void SwitchToRoom(int room){
+        currentIndex = room;
+        SetOne(room,true,true,0);
+    }
     public void PreviousRoom(float delay = 0){
         currentIndex--;
         if(currentIndex < 0)
@@ -58,7 +62,7 @@ public class GameObjectSwitcher : MonoBehaviour
     }
     public void SetOne(int index, bool active, bool setOthersOpposite = true, float delay = 0)
     {
-        if(index > 0 && index <gameObjects.Count)
+        if(index >= 0 && index < gameObjects.Count)
         {
             SetOne(gameObjects[index],active,setOthersOpposite,delay);
         }else{

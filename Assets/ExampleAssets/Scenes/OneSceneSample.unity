@@ -249,7 +249,7 @@ Transform:
   - {fileID: 705507995}
   - {fileID: 1436104263}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &177907918
 MonoBehaviour:
@@ -706,7 +706,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aec7afbe641f36e48bcd85425ddaf48b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lightingGroups: []
+  initiateAtZero: 1
+  lightingGroups:
+  - {fileID: 11400000, guid: a4a0ce343a284354fae5dbc04f500b2a, type: 2}
   light: {fileID: 0}
   defaultIntensity: 0
 --- !u!1 &712018793
@@ -1226,6 +1228,102 @@ MonoBehaviour:
   m_TrackingType: 0
   m_UpdateType: 0
   m_UseRelativeTransform: 0
+--- !u!1 &993743401
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 993743403}
+  - component: {fileID: 993743402}
+  m_Layer: 0
+  m_Name: LightGroupSwitcher Signal Reciever
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &993743402
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 993743401}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e52de21a22b6dd44c9cc19f810c65059, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Events:
+    m_Signals:
+    - {fileID: 11400000, guid: bca463bdeedc7be44bda11bdb2e918da, type: 2}
+    - {fileID: 11400000, guid: 0145089dd6c34ba4ebe3b1f365ccd506, type: 2}
+    m_Events:
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 11400000, guid: e840f9ed58dce1c45832937b8abc4748, type: 2}
+          m_MethodName: FadeLightsOut
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 11400000, guid: a4a0ce343a284354fae5dbc04f500b2a, type: 2}
+          m_MethodName: FadeLightsOut
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 11400000, guid: e840f9ed58dce1c45832937b8abc4748, type: 2}
+          m_MethodName: FadeLightsIn
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 11400000, guid: a4a0ce343a284354fae5dbc04f500b2a, type: 2}
+          m_MethodName: FadeLightsIn
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+--- !u!4 &993743403
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 993743401}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -4.026026, y: -0.14232934, z: -1.1150355}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1058725296
 GameObject:
   m_ObjectHideFlags: 0
@@ -1270,7 +1368,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aec7afbe641f36e48bcd85425ddaf48b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lightingGroups: []
+  initiateAtZero: 1
+  lightingGroups:
+  - {fileID: 11400000, guid: a4a0ce343a284354fae5dbc04f500b2a, type: 2}
   light: {fileID: 0}
   defaultIntensity: 0
 --- !u!108 &1058725299
@@ -1549,7 +1649,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1291095008
 MonoBehaviour:
@@ -1563,6 +1663,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ea91a61ec6375446b5bb80d0ac44c17, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  initiateAtZero: 0
   lightingGroups:
   - {fileID: 11400000, guid: e840f9ed58dce1c45832937b8abc4748, type: 2}
   light: {fileID: 0}
@@ -1941,7 +2042,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1455767105}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.1212597, y: 1.4513341, z: -0.7884379}
+  m_LocalPosition: {x: 4.397, y: 2.811, z: -2.68}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1887135068}
@@ -1959,7 +2060,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aec7afbe641f36e48bcd85425ddaf48b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lightingGroups: []
+  initiateAtZero: 1
+  lightingGroups:
+  - {fileID: 11400000, guid: a4a0ce343a284354fae5dbc04f500b2a, type: 2}
   light: {fileID: 0}
   defaultIntensity: 0
 --- !u!108 &1455767108
@@ -2546,7 +2649,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aec7afbe641f36e48bcd85425ddaf48b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lightingGroups: []
+  initiateAtZero: 1
+  lightingGroups:
+  - {fileID: 11400000, guid: a4a0ce343a284354fae5dbc04f500b2a, type: 2}
   light: {fileID: 0}
   defaultIntensity: 0
 --- !u!108 &1551970815
@@ -2618,7 +2723,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1551970813}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.1212597, y: 1.4513341, z: -0.7884379}
+  m_LocalPosition: {x: 2.1212597, y: 2.352, z: -0.7884379}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 177907917}
@@ -2634,6 +2739,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1698157075}
   - component: {fileID: 1698157074}
+  - component: {fileID: 1698157076}
   m_Layer: 0
   m_Name: Room Switcher
   m_TagString: Untagged
@@ -2656,7 +2762,7 @@ MonoBehaviour:
   gameObjects:
   - {fileID: 177907916}
   - {fileID: 1887135066}
-  startingGOIndex: 0
+  startingGOIndex: 1
   wrapRooms: 1
 --- !u!4 &1698157075
 Transform:
@@ -2670,8 +2776,51 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1698157076
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1698157073}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e52de21a22b6dd44c9cc19f810c65059, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Events:
+    m_Signals:
+    - {fileID: 11400000, guid: af45b30bfd289eb458e7e8b833b8fcfe, type: 2}
+    - {fileID: 11400000, guid: e31ecb455c868584499e2ce1932c5596, type: 2}
+    m_Events:
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1698157074}
+          m_MethodName: SwitchToRoom
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1698157074}
+          m_MethodName: SwitchToRoom
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 1
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &1887135066
 GameObject:
   m_ObjectHideFlags: 0
@@ -2720,7 +2869,59 @@ Transform:
   - {fileID: 1058725297}
   - {fileID: 900394873}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1948534778
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1948534780}
+  - component: {fileID: 1948534779}
+  m_Layer: 0
+  m_Name: Director
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!320 &1948534779
+PlayableDirector:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1948534778}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_PlayableAsset: {fileID: 11400000, guid: d2c4ab38834ea5f4f9aa9a72209c2534, type: 2}
+  m_InitialState: 1
+  m_WrapMode: 1
+  m_DirectorUpdateMode: 1
+  m_InitialTime: 1
+  m_SceneBindings:
+  - key: {fileID: -7143468052682850243, guid: d2c4ab38834ea5f4f9aa9a72209c2534, type: 2}
+    value: {fileID: 1698157076}
+  - key: {fileID: 5884650362479076543, guid: d2c4ab38834ea5f4f9aa9a72209c2534, type: 2}
+    value: {fileID: 993743402}
+  m_ExposedReferences:
+    m_References: []
+--- !u!4 &1948534780
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1948534778}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -4.026026, y: -0.14232934, z: -1.1150355}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1958347276
 GameObject:

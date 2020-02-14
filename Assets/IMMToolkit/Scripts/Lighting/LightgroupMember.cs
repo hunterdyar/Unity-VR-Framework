@@ -4,7 +4,8 @@ using UnityEngine;
 
 namespace IMMToolkit{
     public class LightgroupMember : MonoBehaviour
-    {
+    {   
+        public bool initiateAtZero;
         public LightingGroup[] lightingGroups;
         public static LightingGroup allCurrentlyLoadedLights;
         [HideInInspector]
@@ -23,6 +24,11 @@ namespace IMMToolkit{
                 Debug.LogError("no light component found for lightGroupMember",gameObject);
             }
             defaultIntensity = light.intensity;
+            
+            if(initiateAtZero)
+            {
+                light.intensity = 0;
+            }
             
         }
         void OnEnable(){
